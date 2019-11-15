@@ -1,0 +1,133 @@
+﻿@model NetcadAssignment.Models.ShapeVm
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">New Shape</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form id="addShapeForm" asp-controller="Home" asp-action="Create_Shape" data-ajax="true" data-ajax-method="post" class="m-form m-form--state">
+        <div class="form-group">
+            <label for="recipient-name" class="form-control-label">Type</label>
+            <select id="type" asp-for="ShapeType" class="selectpicker" asp-items="@Html.GetEnumSelectList(typeof(NetcadAssignment.Models.Enum.ShapeType))" data-width="100%"></select>
+        </div>
+
+        <div id="lenA" class="form-group">
+            <label id="lblengthA" for="recipient-name" class="form-control-label">Radius Length</label>
+            <input id="lengthA" asp-for="LengthA" type="text" class="form-control m-input" max="500" aria-required="true" />
+        </div>
+        <div id="lenB" class="form-group" style="display: none;">
+            <label id="lblengthB" for="recipient-name" class="form-control-label">LenghthB</label>
+            <input id="lengthB" asp-for="LengthB" type="text" class="form-control m-input" max="500" aria-required="true" />
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Color</label>
+            <select id="color" asp-for="Color" class="selectpicker" asp-items="@Html.GetEnumSelectList(typeof(NetcadAssignment.Models.Enum.Color))" data-width="100%"></select>
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Fill InSide</label>
+            <input id="isFill" asp-for="IsFilled" type="checkbox" class="form-control m-input" aria-required="true" />
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Border Thickness</label>
+            <input id="borderThick" asp-for="BorderThickness" type="text" class="form-control m-input" aria-required="true" />
+        </div>
+
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Color</label>
+            <select id="color" asp-for="BorderColor" class="selectpicker" asp-items="@Html.GetEnumSelectList(typeof(NetcadAssignment.Models.Enum.Color))" data-width="100%"></select>
+        </div>
+
+        <div class="form-group">           
+            <div class="row">
+                <di class="col-md-6">
+                    <label for="message-text" class="form-control-label">X Coordinate</label>
+                    <input id="pointX" asp-for="XCoordinate" type="text" class="form-control m-input" aria-required="true" />
+                </di>
+                <di class="col-md-6">
+                    <label for="message-text" class="form-control-label">Y Coordinate</label>
+                    <input id="pointY" asp-for="YCoordinate" type="text" class="form-control m-input" aria-required="true" />
+                </di>
+            </div>            
+        </div>
+
+        <div class="form-group">
+            <label for="message-text" class="form-control-label">Keyboard Key</label>
+            <input id="key" asp-for="Key" type="text" class="form-control m-input" maxlength="1" aria-required="true" />
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {        
+
+      var shapeForm = '@Html.Raw(Json.Serialize(Model))';
+
+
+        $("#btnSave").click(function () {
+            $("#addShapeForm").submit();
+        });
+
+        $(function () {
+            $('select').selectpicker();
+        });
+
+        $('#addShapeForm').validate({
+            rules: {
+                "Key": {
+                    maxlength: 1,
+                    required: true
+                },
+                 "LengthA": {
+                    required: true
+                },
+                "XCoordinate": {
+                    required: true
+                },
+                "YCoordinate": {
+                    required: true
+                },
+            },
+            highlight: function (element) {
+                 $(element).parent().addClass('error');
+            },
+           unhighlight: function (element) {
+                $(element).parent().removeClass('error');
+            }
+        });
+    })
+    $('#type').change(function(){        
+
+        var shapeType = $('#type').val();                
+
+        switch (shapeType) {
+
+            case '1':
+                $('#lenB').hide();
+                $('#lblengthA').text("Radius Length");
+                $('#lenA').show();                
+                break;
+            case '2':
+                $('#lblengthA').text("Radius A Length");
+                $('#lblengthB').text("Radius B Length");
+                $('#lenB').show().slideDown();
+                break;
+            case '3':
+                $('#lblengthA').text("Number Of Side");
+                $('#lblengthB').text("Length Of Side");
+                $('#lenB').show();
+                break;
+            case '4':
+                $('#lblengthA').text("One Of Side Length");
+                $('#lenB').hide();
+                break;
+            default:
+        }
+    })
+
+</script>

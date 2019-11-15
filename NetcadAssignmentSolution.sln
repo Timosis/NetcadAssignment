@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetcadAssignment", "NetcadAssignment\NetcadAssignment.csproj", "{77211731-AC63-4E2F-8B7C-2E51552B58F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77211731-AC63-4E2F-8B7C-2E51552B58F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77211731-AC63-4E2F-8B7C-2E51552B58F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77211731-AC63-4E2F-8B7C-2E51552B58F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77211731-AC63-4E2F-8B7C-2E51552B58F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFD86E60-D3E6-432A-A523-AA212021CE25}
+	EndGlobalSection
+EndGlobal

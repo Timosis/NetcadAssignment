@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-10">
+        <button id="addShape" type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_general">Add A Shape</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div id="canvas"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+    }).keypress(function (event) {
+
+        var key = (event.keyCode ? event.keyCode : event.which);
+        var ch = String.fromCharCode(key)
+        $.ajax({
+            type: "GET",
+            url: "/Home/Get_Shape",
+            contentType: "application/json; charset=utf-8",
+            datatype: "json",
+            data: {
+                key: ch,
+            },
+            success: function (data) {
+                var result = data;
+                drawShape(result);
+            },
+            error: function () {
+                alert("Dynamic content load failed.");
+            }
+        });
+    });
+
+    function setup() {
+        debugger;
+        var canvasDiv = document.getElementById('canvas');
+        var width = canvasDiv.offsetWidth;
+        var height = canvasDiv.offsetHeight;
+        let canvas = createCanvas(width, height);
+        background(230);
+        canvas.parent('canvas');
+    }
+
+    function drawShape(shape) {
+        console.log(shape.Type);
+
+        switch (shape.Type) {
+            case 1:
+                drawCircle(shape);
+                break;
+            case 2:
+                drawEllipse(shape);
+                break;
+            case 3:
+                drawPolygon(shape);
+                break;
+            case 4:
+                drawSquare(shape);
+                break;
+            default:
+        }
+    }
+
+
+    function drawCircle(shape) {
+        debugger;
+        if (shape.IsFilled) {
+            let c = getColor(shape.Color);
+            fill(c);
+        }
+        else {
+            noFill();
+        }
+
+        if (shape.BorderColor > 0) {
+            let borderColor = getColor(shape.BorderColor);
+            stroke(borderColor);
+        }
+
+        strokeWeight(shape.BorderThickness);
+        circle(shape.PointX, shape.PointY, shape.Radius);
+    }
+
+    function drawEllipse(shape) {
+        debugger;
+        if (shape.IsFilled) {
+            let c = getColor(shape.Color);
+            fill(c);
+        }
+        else {
+            noFill();
+        }
+        if (shape.BorderColor > 0) {
+            let borderColor = getColor(shape.BorderColor);
+            stroke(borderColor);
+        }
+        strokeWeight(shape.BorderThickness);
+        ellipse(shape.PointX, shape.PointY, shape.RadiusA, shape.RadiusB)
+    }
+
+    function drawPolygon(shape) {
+        debugger;
+        if (shape.IsFilled) {
+            let c = getColor(shape.Color);
+            fill(c);
+        }
+        else {
+            noFill();
+        }
+        if (shape.BorderColor > 0) {
+            let borderColor = getColor(shape.BorderColor);
+            stroke(borderColor);
+        }
+
+        strokeWeight(shape.BorderThickness);
+        let radius = shape.LengthOfASide / (2 * sin(180 / shape.NumberOfSide));
+        polygon(shape.PointX, shape.PointY, radius, shape.NumberOfSide)
+    }
+
+    function polygon(x, y, radius, npoints) {
+        let angle = TWO_PI / npoints;
+        beginShape();
+        for (let a = 0; a < TWO_PI; a += angle) {
+            let sx = x + cos(a) * radius;
+            let sy = y + sin(a) * radius;
+            vertex(sx, sy);
+        }
+        endShape(CLOSE);
+    }
+
+    function drawSquare(shape) {
+        debugger;
+        if (shape.IsFilled) {
+            let c = getColor(shape.Color);
+            fill(c);
+        }
+        else {
+            noFill();
+        }
+        if (shape.BorderColor > 0) {
+            let borderColor = getColor(shape.BorderColor);
+            stroke(borderColor);
+        }
+
+        strokeWeight(shape.BorderThickness);
+        square(shape.PointX, shape.PointY, shape.LengthOfASide);
+    }
+
+    function getColor(colorShape) {
+        switch (colorShape) {
+            case 1:
+                let colorRed = color('red');
+                return colorRed;
+                break;
+            case 2:
+                let colorBlue = color('blue');
+                return colorBlue;
+                break;
+            case 3:
+                let colorGreen = color('green');
+                return colorGreen;
+                break;
+            case 4:
+                let colorOrange = color('orange');
+                return colorOrange;
+                break;
+            case 5:
+                let colorYellow = color('yellow');
+                return colorYellow;
+                break;
+            case 6:
+                let colorPurple = color('purple');
+                return colorPurple;
+                break;
+            case 7:
+                let colorBlack = color('black');
+                return colorBlack;
+                break;
+
+            default:
+        }
+    }
+
+    $(function () {
+        $("#addShape").click(function () {
+            var $buttonClicked = $(this);
+            $.ajax({
+                type: "GET",
+                url: "/Home/Add_Shape",
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                success: function (data) {
+                    $('#generalModal').html(data);
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        });
+    });
+
+</script>

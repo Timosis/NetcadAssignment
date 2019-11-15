@@ -1,0 +1,140 @@
+[
+  {
+    "Radius": 200.0,
+    "Type": 1,
+    "IsFilled": true,
+    "Key": "A",
+    "Color": 4,
+    "BorderThickness": 5,
+    "BorderColor": 7,
+    "PointX": 200,
+    "PointY": 150
+  },
+  {
+    "Radius": 200.0,
+    "Type": 1,
+    "IsFilled": false,
+    "Key": "S",
+    "Color": 3,
+    "BorderThickness": 10,
+    "BorderColor": 3,
+    "PointX": 450,
+    "PointY": 150
+  },
+  {
+    "RadiusA": 200.0,
+    "RadiusB": 150.0,
+    "Type": 2,
+    "IsFilled": false,
+    "Key": "D",
+    "Color": 1,
+    "BorderThickness": 5,
+    "BorderColor": 2,
+    "PointX": 700,
+    "PointY": 150
+  },
+  {
+    "RadiusA": 200.0,
+    "RadiusB": 300.0,
+    "Type": 2,
+    "IsFilled": true,
+    "Key": "F",
+    "Color": 6,
+    "BorderThickness": 5,
+    "BorderColor": 2,
+    "PointX": 950,
+    "PointY": 200
+  },
+  {
+    "NumberOfSide": 5.0,
+    "LengthOfASide": 250.0,
+    "Type": 3,
+    "IsFilled": true,
+    "Key": "G",
+    "Color": 4,
+    "BorderThickness": 0,
+    "BorderColor": 1,
+    "PointX": 1200,
+    "PointY": 200
+  },
+  {
+    "NumberOfSide": 3.0,
+    "LengthOfASide": 75.0,
+    "Type": 3,
+    "IsFilled": true,
+    "Key": "E",
+    "Color": 1,
+    "BorderThickness": 5,
+    "BorderColor": 7,
+    "PointX": 1500,
+    "PointY": 200
+  },
+  {
+    "LengthOfASide": 200.0,
+    "Type": 4,
+    "IsFilled": true,
+    "Key": "R",
+    "Color": 3,
+    "BorderThickness": 5,
+    "BorderColor": 6,
+    "PointX": 200,
+    "PointY": 400
+  },
+  {
+    "LengthOfASide": 200.0,
+    "Type": 4,
+    "IsFilled": false,
+    "Key": "T",
+    "Color": 4,
+    "BorderThickness": 15,
+    "BorderColor": 4,
+    "PointX": 500,
+    "PointY": 400
+  },
+  {
+    "NumberOfSide": 10.0,
+    "LengthOfASide": 150.0,
+    "Type": 3,
+    "IsFilled": false,
+    "Key": "Y",
+    "Color": 1,
+    "BorderThickness": 10,
+    "BorderColor": 2,
+    "PointX": 850,
+    "PointY": 500
+  },
+  {
+    "NumberOfSide": 3.0,
+    "LengthOfASide": 75.0,
+    "Type": 3,
+    "IsFilled": false,
+    "Key": "U",
+    "Color": 6,
+    "BorderThickness": 5,
+    "BorderColor": 3,
+    "PointX": 1100,
+    "PointY": 500
+  },
+  {
+    "Radius": 200.0,
+    "Type": 1,
+    "IsFilled": true,
+    "Key": "O",
+    "Color": 6,
+    "BorderThickness": 5,
+    "BorderColor": 7,
+    "PointX": 1300,
+    "PointY": 500
+  },
+  {
+    "LengthOfASide": 200.0,
+    "Type": 4,
+    "IsFilled": true,
+    "Key": "M",
+    "Color": 4,
+    "BorderThickness": 25,
+    "BorderColor": 2,
+    "PointX": 1450,
+    "PointY": 400
+  }
+]
