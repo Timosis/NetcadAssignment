@@ -12,6 +12,14 @@ proje.
   6. Proje için gerekli geometrik şekil için sınıflar, arayüz(interface), business ve dataservice sınıfları eklendi.
   7. Özelliklerine göre anahat ve dolgu renkleri ayarlanması sağlandı. 
   
+  
+  ![Image of Screen](https://github.com/Timosis/NetcadAssignment/blob/master/Screen-1.JPG)
+  
+  ![Image of Save](https://github.com/Timosis/NetcadAssignment/blob/master/save-shape.JPG)
+  
+  
+
+  
  
 
 
