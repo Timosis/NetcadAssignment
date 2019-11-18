@@ -1,6 +1,6 @@
 # NetcadAssignment
 
-Tanımlanan geometrik şekilleri ve geometrik şekle tanımlanmış harfi klayeden girerek sayfa üzerindeki canvas elementine içine yazdıran
+Tanımlanan geometrik şekilleri ve geometrik şekle tanımlanmış harfi klayeden girerek sayfa üzerindeki canvas elementinin içine yazdıran
 proje.
 
 ## Yapılan Maddeler :
